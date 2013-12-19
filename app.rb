@@ -16,6 +16,7 @@ module Name
     end
 
     get '/:holiday' do
+      @today = get_time
       @is_it = Holiday.new(@today)
       if @is_it.send(params[:holiday]) == "Yes!"
         @image = params[:holiday]
@@ -24,8 +25,9 @@ module Name
     end
 
     get '/:holiday/pretend' do
-      @image = params[:holiday]
+      @today = get_time
       @is_it = Holiday.new(@today)
+      @image = params[:holiday]
       erb :index
     end
 
