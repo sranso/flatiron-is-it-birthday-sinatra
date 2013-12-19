@@ -1,4 +1,5 @@
-class Holiday < ActiveRecord::Base
+class Holiday
+  attr_reader :time
 
   Timezone::Configure.begin do |c|
     c.username = 'your_geonames_username_goes_here'
