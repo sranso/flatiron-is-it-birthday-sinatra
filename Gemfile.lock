@@ -20,6 +20,7 @@ GEM
     atomic (1.1.10)
     bond (0.4.3)
     builder (3.1.4)
+    geocoder (1.1.9)
     i18n (0.6.4)
     minitest (4.7.5)
     multi_json (1.7.7)
@@ -49,6 +50,7 @@ GEM
     thread_safe (0.1.0)
       atomic
     tilt (1.4.1)
+    timezone (0.3.1)
     tux (0.3.0)
       ripl (>= 0.3.5)
       ripl-multi_line (>= 0.2.4)
@@ -61,8 +63,10 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord
+  geocoder
   rake
   shotgun
   sinatra
   sinatra-activerecord
+  timezone
   tux
