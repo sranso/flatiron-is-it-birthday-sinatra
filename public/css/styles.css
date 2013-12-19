@@ -1,0 +1,67 @@
+.header {
+  margin: 0px auto;
+  background-color: rgba(25, 25, 25, 0.7);
+  width: 100%;
+  height: 50px;
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.header a {
+  font-size: 22px;
+  margin: 10px;
+  padding: 10px;
+  line-height: 2;
+}
+.header a:hover {
+  color: gold;
+}
+.birthday {
+  background-image: url("/img/bday.gif");
+  background-size: 100%;
+  color: white;
+}
+.christmas {
+  background-image: url("/img/christmas.gif");
+  background-size: 100%;
+  color: white;
+}
+.hannukah {
+  background-image: url("/img/hannukah.gif");
+  background-size: 100%;
+  color: white;
+}
+h1 {
+  padding-top: 20%;
+}
+h1, h2, p {
+  text-align: center;
+}
+a:hover {
+  text-decoration: none;
+}
+p:hover {
+    color: #08c;
+}
+.button {
+  -moz-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  -webkit-box-shadow: inset 0px 1px 0px 0px #ffffff;
+  box-shadow: inset 0px 1px 0px 0px #ffffff;
+  background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+  background: -moz-linear-gradient( center top, #f9f9f9 5%, #e9e9e9 100% );
+  background-color: #f9f9f9;
+  -webkit-border-radius: 11px 11px 11px 11px;
+  -moz-border-radius: 11px 11px 11px 11px;
+  height: 20px;
+  width: 150px;
+  vertical-align: middle;
+  margin: 0 auto;
+  color: black;
+  padding: 10px;
+  cursor: pointer;
+}
+.button:hover {
+  background: -webkit-gradient( linear, right bottom, right bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9) );
+  background: -moz-linear-gradient( center bottom, #f9f9f9 5%, #e9e9e9 100% );
+}
