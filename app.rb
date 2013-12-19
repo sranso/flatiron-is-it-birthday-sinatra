@@ -10,13 +10,13 @@ module Name
 
     #routes
     get '/' do
-      # @today = get_time
-      @is_it = Holiday.new
+      @today = get_time
+      @is_it = Holiday.new(@today)
       erb :index
     end
 
     get '/:holiday' do
-      @is_it = Holiday.new
+      @is_it = Holiday.new(@today)
       if @is_it.send(params[:holiday]) == "Yes!"
         @image = params[:holiday]
       end
@@ -25,7 +25,7 @@ module Name
 
     get '/:holiday/pretend' do
       @image = params[:holiday]
-      @is_it = Holiday.new
+      @is_it = Holiday.new(@today)
       erb :index
     end
 

@@ -1,10 +1,10 @@
 class Holiday < ActiveRecord::Base
   attr_accessor :really
 
-  def initialize #(time)
-    @this_month = Time.now.month #time.month
-    @this_day = Time.now.day #time.day
-    @this_year = Time.now.year #time.year
+  def initialize(time)
+    @this_month = time.month
+    @this_day = time.day
+    @this_year = time.year
   end
 
   def birthday
