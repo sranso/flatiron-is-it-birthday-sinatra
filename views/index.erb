@@ -3,6 +3,7 @@
   <a href="/christmas">Christmas</a>
   <a href="/hannukah">Hannukah</a>
 </div>
+<%= @is_it.birthday %>
 <% if params[:holiday] %>
   <h1>Is It <%= params[:holiday].capitalize %> Yet?</h1>
   <h2><%= @is_it.send(params[:holiday].delete(' ')) %></h2>
