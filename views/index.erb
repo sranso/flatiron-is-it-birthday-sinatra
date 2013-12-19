@@ -3,10 +3,15 @@
   <a href="/christmas">Christmas</a>
   <a href="/hannukah">Hannukah</a>
 </div>
-<h1>Is It <%= params[:holiday].capitalize %> Yet?</h1>
-<h2><%= @is_it.send(params[:holiday].delete(' ')) %></h2>
-<a href="/<%= params[:holiday] %>/pretend">
-  <div class="button">
-    <p>Pretend It Is</p>
-  </div>
-</a>
+<% if params[:holiday] %>
+  <h1>Is It <%= params[:holiday].capitalize %> Yet?</h1>
+  <h2><%= @is_it.send(params[:holiday].delete(' ')) %></h2>
+  <a href="/<%= params[:holiday] %>/pretend">
+    <div class="button">
+      <p>Pretend It Is</p>
+    </div>
+  </a>
+<% else %>
+  <h1>Is It A Holiday?</h1>
+  <h2>Click one of the options above.</h2>
+<% end %>
