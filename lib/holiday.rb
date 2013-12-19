@@ -8,9 +8,11 @@ class Holiday
   attr_accessor :really
 
   def initialize(time)
-    @this_month = time.month
-    @this_day = time.day
-    @this_year = time.year
+    puts "**************************"
+    puts @this_month = time.month
+    puts @this_day = time.day
+    puts @this_year = time.year
+    puts "**************************"
   end
 
   def birthday
