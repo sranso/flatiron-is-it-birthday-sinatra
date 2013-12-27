@@ -1,11 +1,9 @@
 class Holiday
-  attr_reader :time
+  attr_reader :time, :days_until, :hrs_until, :mins_until, :secs_until
 
   Timezone::Configure.begin do |c|
     c.username = 'your_geonames_username_goes_here'
   end
-
-  attr_accessor :really
 
   def initialize(time)
     @this_month = time.month
@@ -17,7 +15,41 @@ class Holiday
     @bday_month = 10
     @bday_day = 03
     @bday_year = 1988
-    yes_or_no(@bday_month, @bday_day)
+    yes_or_no_bday(@bday_month, @bday_day)
+  end
+
+  def yes_or_no_bday(month, day)
+    if @this_month == month && @this_day == day
+      "Yes! She just turned #{age} years old!!!"
+    else
+      "No, but it will be in #{days_until} days, #{hrs_until} hours,
+       #{mins_until} minutes, and #{secs_until} seconds!"
+    end
+  end
+
+  def age
+    @this_year - @bday_year
+  end
+
+  def next_bday_year
+    if @this_month <= 10
+      @this_year
+    else
+      @this_year + 1 
+    end
+  end
+
+  def countdown
+    time_diff = (Time.now - Time.local(next_bday_year, "Oct", 3)).to_i.abs
+    # 86400 = seconds in day
+    days_until = time_diff/86400
+    remainder = time_diff%86400
+    # 3600 secs in hour
+    hrs_until = remainder/3600
+    remainder = remainder%3600
+    # 60 secs in min
+    mins_until = remainder/60
+    secs_until = remainder%60
   end
 
   def christmas
@@ -37,37 +69,6 @@ class Holiday
       "Yes!"
     else
       "No."
-    end
-  end
-
-  def age
-    @this_year - @bday_year
-  end
-
-  def months_until_birthday
-    if (@this_month - @bday_month) >= 0
-      @months_until_birthday = 12 - (@this_month - @bday_month)       
-    else
-      @months_until_birthday = (@this_month - @bday_month).abs
-    end
-  end
-
-  def days_in_this_month
-    case @this_month
-    when 1 || 3 || 5 || 7 || 8 || 10 || 12
-      days_in_this_month = 31
-    when 2
-      days_in_this_month = 28
-    when 4 || 6 || 9 || 11
-      days_in_this_month = 30
-    end
-  end
-
-  def days_until_birthday
-    if (@this_day - @bday_day) >= 0
-      @days_until_birthday = @this_day - @bday_day
-    else
-      @days_until_birthday = (@this_day - @bday_day).abs
     end
   end
 
