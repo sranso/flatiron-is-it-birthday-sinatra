@@ -6,6 +6,7 @@ class Holiday
   end
 
   def initialize(time)
+    @time = time
     @this_month = time.month
     @this_day = time.day
     @this_year = time.year
@@ -39,7 +40,7 @@ class Holiday
   end
 
   def countdown(month, day)
-    time_diff = (Time.now - Time.local(next_holiday_year(month), month, day)).to_i.abs
+    time_diff = (@time - @time(next_holiday_year(month), month, day)).to_i.abs
     # 86400 = seconds in day
     days_until = time_diff/86400
     remainder = time_diff%86400
