@@ -22,7 +22,7 @@ class Holiday
     if @this_month == month && @this_day == day
       "Yes! She just turned #{age} years old!!!"
     else
-      countdown
+      countdown(month, day)
     end
   end
 
@@ -30,16 +30,16 @@ class Holiday
     @this_year - @bday_year
   end
 
-  def next_bday_year
-    if @this_month <= 10
+  def next_holiday_year(month)
+    if @this_month <= month
       @this_year
     else
       @this_year + 1 
     end
   end
 
-  def countdown
-    time_diff = (Time.now - Time.local(next_bday_year, "Oct", 3)).to_i.abs
+  def countdown(month, day)
+    time_diff = (Time.now - Time.local(next_holiday_year(month), month, day)).to_i.abs
     # 86400 = seconds in day
     days_until = time_diff/86400
     remainder = time_diff%86400
@@ -69,7 +69,7 @@ class Holiday
     if @this_month == month && day === @this_day
       "Yes!"
     else
-      "No."
+      countdown(month, day)
     end
   end
 
