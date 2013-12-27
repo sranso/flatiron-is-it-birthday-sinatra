@@ -31,6 +31,26 @@ class Holiday
     @this_year - @bday_year
   end
 
+  def christmas
+    @christmas_month = 12
+    @christmas_day = 25
+    yes_or_no(@christmas_month, @christmas_day)
+  end
+
+  def hannukah
+    @hannukah_month = 12
+    @hannukah_day = 16..24
+    yes_or_no(@hannukah_month, @hannukah_day)
+  end
+
+  def yes_or_no(month, day)
+    if @this_month == month && day === @this_day
+      "Yes!"
+    else
+      countdown(month, day)
+    end
+  end
+
   def next_holiday_year(month)
     if @this_month <= month
       @this_year
@@ -52,26 +72,6 @@ class Holiday
     secs_until = remainder%60
     "No, but it will be in #{days_until} days, #{hrs_until} hours,
      #{mins_until} minutes, and #{secs_until} seconds!"
-  end
-
-  def christmas
-    @christmas_month = 12
-    @christmas_day = 25
-    yes_or_no(@christmas_month, @christmas_day)
-  end
-
-  def hannukah
-    @hannukah_month = 12
-    @hannukah_day = 16..24
-    yes_or_no(@hannukah_month, @hannukah_day)
-  end
-
-  def yes_or_no(month, day)
-    if @this_month == month && day === @this_day
-      "Yes!"
-    else
-      countdown(month, day)
-    end
   end
 
 end
