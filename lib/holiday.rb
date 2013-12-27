@@ -2,7 +2,7 @@ class Holiday
   attr_reader :time
 
   Timezone::Configure.begin do |c|
-    c.username = 'your_geonames_username_goes_here'
+    c.username = 'sranso'
   end
 
   def initialize(time)
@@ -47,12 +47,12 @@ class Holiday
     if @this_month == month && day === @this_day
       "Yes!"
     else
-      countdown(month, day)
+      day.is_a?(Range) ? countdown(month, day.first) : countdown(month, day)
     end
   end
 
-  def next_holiday_year(month)
-    if @this_month <= month
+  def next_holiday_year(month, day)
+    if @this_month <= month || @this_month == month && @this_day < day
       @this_year
     else
       @this_year + 1 

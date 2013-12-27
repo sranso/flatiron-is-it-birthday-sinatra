@@ -1,9 +1,7 @@
 require 'bundler'
 Bundler.require
 
-Dir.glob('./lib/*.rb') do |model|
-  require model
-end
+require './lib/holiday'
 
 module Name
   class App < Sinatra::Application
