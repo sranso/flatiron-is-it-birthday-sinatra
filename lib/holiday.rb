@@ -1,5 +1,5 @@
 class Holiday
-  attr_reader :time, :days_until, :hrs_until, :mins_until, :secs_until
+  attr_reader :time
 
   Timezone::Configure.begin do |c|
     c.username = 'your_geonames_username_goes_here'
@@ -22,8 +22,7 @@ class Holiday
     if @this_month == month && @this_day == day
       "Yes! She just turned #{age} years old!!!"
     else
-      "No, but it will be in #{days_until} days, #{hrs_until} hours,
-       #{mins_until} minutes, and #{secs_until} seconds!"
+      countdown
     end
   end
 
@@ -50,6 +49,8 @@ class Holiday
     # 60 secs in min
     mins_until = remainder/60
     secs_until = remainder%60
+    "No, but it will be in #{days_until} days, #{hrs_until} hours,
+     #{mins_until} minutes, and #{secs_until} seconds!"
   end
 
   def christmas
